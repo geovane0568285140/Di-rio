@@ -1,4 +1,4 @@
-package com.example.dirio.viewModel
+package com.example.dirio.view.viewModel
 
 import androidx.lifecycle.ViewModel
 

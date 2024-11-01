@@ -1,4 +1,4 @@
-package com.example.dirio.viewHolder
+package com.example.dirio.view.viewHolder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dirio.databinding.FragmentDiariesBinding
-import com.example.dirio.viewModel.DiariesViewModel
+import com.example.dirio.view.viewModel.DiariesViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dirio.databinding.RowDailyBinding
-import com.example.dirio.viewHolder.DiariesViewHolder
+import com.example.dirio.view.viewHolder.DiariesViewHolder
 
 class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
 
