@@ -8,8 +8,9 @@
     <fragment
         android:id="@+id/DiariesFragment"
         android:name="com.example.dirio.view.DiariesFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_diaries">
+        android:label="@string/diaries_fragment_label"
+        tools:layout="@layout/teste"
+        >
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

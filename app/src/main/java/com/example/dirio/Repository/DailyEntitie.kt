@@ -7,6 +7,7 @@ import java.time.LocalDateTime
 
 @Entity
 data class DailyEntitie (
+
     @PrimaryKey
     val id: Int,
 
