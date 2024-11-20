@@ -9,7 +9,7 @@ import com.example.dirio.view.viewHolder.DiariesViewHolder
 
 class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
 
-    private var listDiaries = listOf("titulo 1", "titulo 2")
+    private var listDiaries: List<DailyEntitie> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiariesViewHolder {
         val item = RowDailyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,4 +23,9 @@ class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
     override fun getItemCount(): Int {
         return listDiaries.count()
     }
+
+    fun update(list: List<DailyEntitie>){
+        listDiaries = list
+    }
+
 }

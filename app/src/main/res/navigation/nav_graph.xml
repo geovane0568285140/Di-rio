@@ -9,7 +9,7 @@
         android:id="@+id/DiariesFragment"
         android:name="com.example.dirio.view.DiariesFragment"
         android:label="@string/diaries_fragment_label"
-        tools:layout="@layout/teste"
+        tools:layout="@layout/fragment_diaries"
         >
 
         <action

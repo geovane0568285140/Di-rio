@@ -5,10 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
-@Entity
+@Entity(tableName = "Daily")
 data class DailyEntitie (
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
 
     @ColumnInfo(name = "Title")

@@ -1,11 +1,14 @@
 package com.example.dirio.Repository
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import android.content.Context
+import androidx.room.TypeConverters
+
 
 @Database(entities = [DailyEntitie::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class DailyDataBase: RoomDatabase() {
 
     abstract fun dailyDAO(): DailyDAO
@@ -17,8 +20,9 @@ abstract class DailyDataBase: RoomDatabase() {
         fun getDataBAse(context: Context):DailyDataBase {
             if (!::INSTANCE.isInitialized){
                 synchronized(DailyEntitie::class.java){
-                 INSTANCE = Room.databaseBuilder(context, DailyDataBase::class.java, "database-Daily"
-                 ).allowMainThreadQueries().build()
+                 INSTANCE = Room.databaseBuilder(context, DailyDataBase::class.java, "dailydb")
+                     .allowMainThreadQueries()
+                     .build()
                 }
             }
             return INSTANCE

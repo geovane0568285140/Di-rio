@@ -1,13 +1,14 @@
 package com.example.dirio.view
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.adapter.DiariesAdapter
 import com.example.dirio.databinding.FragmentDiariesBinding
 import com.example.dirio.databinding.TesteBinding
@@ -36,6 +37,8 @@ class DiariesFragment : Fragment() {
         binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewDiaries.adapter = adpter
 
+        observe()
+
         return binding.root
     }
 
@@ -47,8 +50,20 @@ class DiariesFragment : Fragment() {
 //        }
 //    }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getALL()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observe(){
+        viewModel.observeListaDaily.observe(viewLifecycleOwner
+        ) {
+            adpter.update(it)
+        }
     }
 }
