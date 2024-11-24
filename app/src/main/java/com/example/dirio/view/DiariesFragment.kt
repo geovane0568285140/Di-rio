@@ -37,6 +37,7 @@ class DiariesFragment : Fragment() {
         binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewDiaries.adapter = adpter
 
+        viewModel.getALL()
         observe()
 
         return binding.root
