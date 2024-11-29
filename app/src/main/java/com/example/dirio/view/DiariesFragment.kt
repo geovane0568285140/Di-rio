@@ -5,13 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.adapter.DiariesAdapter
 import com.example.dirio.databinding.FragmentDiariesBinding
-import com.example.dirio.databinding.TesteBinding
+import com.example.dirio.listener.ListenerFragment
 import com.example.dirio.view.viewModel.DiariesViewModel
 
 /**
@@ -22,9 +21,9 @@ class DiariesFragment : Fragment() {
     private var _binding: FragmentDiariesBinding? = null
 //    private var _binding: TesteBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: DiariesViewModel
+//    private lateinit var viewModel: DiariesViewModel
     private var adpter = DiariesAdapter()
-
+    private val viewModel by viewModels<DiariesViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,10 +31,21 @@ class DiariesFragment : Fragment() {
 
         _binding = FragmentDiariesBinding.inflate(inflater, container, false)
 //        _binding = TesteBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[DiariesViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[DiariesViewModel::class.java]
 
         binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewDiaries.adapter = adpter
+        adpter.getListener(object : ListenerFragment{
+
+            override fun editDaily(id: Int) {
+
+            }
+
+            override fun deleteDaiyl(id: Int) {
+
+            }
+
+        })
 
         viewModel.getALL()
         observe()
