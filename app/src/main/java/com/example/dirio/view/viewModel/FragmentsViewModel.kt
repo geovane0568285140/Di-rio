@@ -1,16 +1,14 @@
 package com.example.dirio.view.viewModel
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.Repository.DiariesRepostiry
-import java.time.LocalDateTime
 
 
-class DiariesViewModel(application: Application) : AndroidViewModel(application) {
+class FragmentsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repostiry = DiariesRepostiry(application.applicationContext)
 
