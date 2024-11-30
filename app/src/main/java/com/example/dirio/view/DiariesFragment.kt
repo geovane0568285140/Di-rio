@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dirio.adapter.DiariesAdapter
 import com.example.dirio.databinding.FragmentDiariesBinding
 import com.example.dirio.listener.ListenerFragment
-import com.example.dirio.view.viewModel.DiariesViewModel
+import com.example.dirio.view.viewModel.FragmentsViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -23,7 +23,7 @@ class DiariesFragment : Fragment() {
     private val binding get() = _binding!!
 //    private lateinit var viewModel: DiariesViewModel
     private var adpter = DiariesAdapter()
-    private val viewModel by viewModels<DiariesViewModel>()
+    private val viewModel by viewModels<FragmentsViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
