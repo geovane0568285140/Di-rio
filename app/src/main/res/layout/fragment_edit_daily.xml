@@ -9,24 +9,43 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/edit_titulo">
 
         <EditText
-            android:id="@+id/edit_titulo"
+            android:id="@+id/edit_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:hint="@string/Title"
+            android:textColorHint="@color/gray_text"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TimePicker
+            android:id="@+id/time_Date"
+            android:layout_width="336dp"
+            android:layout_height="349dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_text_daily"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_title" />
 
         <EditText
             android:id="@+id/edit_text_daily"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_titulo"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:hint="@string/What_happened_today"
+            android:textColorHint="@color/gray_text"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/edit_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

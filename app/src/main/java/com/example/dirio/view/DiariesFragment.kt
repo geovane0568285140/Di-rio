@@ -19,9 +19,7 @@ import com.example.dirio.view.viewModel.FragmentsViewModel
 class DiariesFragment : Fragment() {
 
     private var _binding: FragmentDiariesBinding? = null
-//    private var _binding: TesteBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var viewModel: DiariesViewModel
     private var adpter = DiariesAdapter()
     private val viewModel by viewModels<FragmentsViewModel>()
     override fun onCreateView(
@@ -30,8 +28,6 @@ class DiariesFragment : Fragment() {
     ): View {
 
         _binding = FragmentDiariesBinding.inflate(inflater, container, false)
-//        _binding = TesteBinding.inflate(inflater, container, false)
-//        viewModel = ViewModelProvider(this)[DiariesViewModel::class.java]
 
         binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewDiaries.adapter = adpter
