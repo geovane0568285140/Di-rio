@@ -34,7 +34,7 @@ class DiariesFragment : Fragment() {
         adpter.getListener(object : ListenerFragment{
 
             override fun editDaily(id: Int) {
-
+val disk = "so pra dizer"
             }
 
             override fun deleteDaiyl(id: Int) {
