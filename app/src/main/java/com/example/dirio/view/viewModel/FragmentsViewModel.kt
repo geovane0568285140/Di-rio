@@ -28,5 +28,9 @@ class FragmentsViewModel(application: Application) : AndroidViewModel(applicatio
         listaDaily.value = repostiry.getALL()
     }
 
+    fun insertDaily(dailyEntitie: DailyEntitie){
+        repostiry.insert(dailyEntitie)
+    }
+
 
 }

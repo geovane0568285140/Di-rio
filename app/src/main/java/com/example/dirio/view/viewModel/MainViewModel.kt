@@ -1,17 +1,22 @@
 package com.example.dirio.view.viewModel
 
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.example.dirio.R
+import com.example.dirio.Repository.DiariesRepostiry
 
 
-class MainViewModel: ViewModel() {
+class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _drawable = MutableLiveData<Int>()
     val drawable: LiveData<Int> = _drawable
+
+    private val db = DiariesRepostiry(application)
 
     fun startFragment(nav: NavController){
             when(nav.currentDestination?.id){

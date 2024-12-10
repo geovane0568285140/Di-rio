@@ -9,6 +9,8 @@ class DiariesViewHolder(private val bind: RowDailyBinding) : RecyclerView.ViewHo
     fun bind(daily: DailyEntitie) {
 
         bind.textTitulo.text = daily.title
+
+
     }
 
 

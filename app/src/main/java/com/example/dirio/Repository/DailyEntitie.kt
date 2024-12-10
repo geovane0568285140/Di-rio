@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 data class DailyEntitie (
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Int = 0,
 
     @ColumnInfo(name = "Title")
     val title: String,
