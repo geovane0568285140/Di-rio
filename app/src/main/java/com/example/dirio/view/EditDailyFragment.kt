@@ -26,10 +26,7 @@ class EditDailyFragment : Fragment() {
 
         _binding = FragmentEditDailyBinding.inflate(inflater, container, false)
 
-val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        val formatted = current.format(formatter)
-        binding.textDate.text = formatted
+
 
         return binding.root
     }
