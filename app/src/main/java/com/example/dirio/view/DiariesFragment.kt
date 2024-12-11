@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dirio.R
 import com.example.dirio.adapter.DiariesAdapter
 import com.example.dirio.databinding.FragmentDiariesBinding
 import com.example.dirio.listener.ListenerFragment
@@ -34,10 +35,10 @@ class DiariesFragment : Fragment() {
 
         binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewDiaries.adapter = adpter
-        adpter.getListener(object : ListenerFragment{
+        adpter.getListener(object : ListenerFragment {
 
             override fun editDaily(id: Int) {
-val disk = "so pra dizer"
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
             }
 
             override fun deleteDaiyl(id: Int) {
@@ -46,7 +47,6 @@ val disk = "so pra dizer"
 
         })
 
-        viewModel.getALL()
         observe()
 
         return binding.root
@@ -70,8 +70,9 @@ val disk = "so pra dizer"
         _binding = null
     }
 
-    private fun observe(){
-        viewModel.observeListaDaily.observe(viewLifecycleOwner
+    private fun observe() {
+        viewModel.observeListaDaily.observe(
+            viewLifecycleOwner
         ) {
             adpter.update(it)
         }

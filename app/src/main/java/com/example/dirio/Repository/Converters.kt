@@ -5,11 +5,13 @@ import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.Date
 
 
 class Converters {
 
-    private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
+    private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+
 
     @TypeConverter
     fun dataTime_String(date: LocalDateTime): String {
@@ -17,9 +19,8 @@ class Converters {
     }
 
     @TypeConverter
-    fun StringDatatime(dateString: String): LocalDateTime{
-        return LocalDateTime.parse(dateString, formatter)
+    fun string_Datatime(dateTimeString: String): LocalDateTime{
+        return LocalDateTime.parse(dateTimeString, formatter)
     }
-
 
 }

@@ -16,7 +16,7 @@ class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiariesViewHolder {
         val item = RowDailyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DiariesViewHolder(item)
+        return DiariesViewHolder(item, listenerFragment)
     }
 
     override fun onBindViewHolder(holder: DiariesViewHolder, position: Int) {

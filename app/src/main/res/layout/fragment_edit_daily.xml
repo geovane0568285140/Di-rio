@@ -29,8 +29,8 @@
 
         <TimePicker
             android:id="@+id/time_Date"
-            android:layout_width="336dp"
-            android:layout_height="349dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:keepScreenOn="false"
             android:keyboardNavigationCluster="false"
             android:numbersSelectorColor="#9C27B0"

@@ -16,7 +16,6 @@ abstract class DailyDataBase: RoomDatabase() {
     companion object {
 
         private lateinit var INSTANCE: DailyDataBase
-
         fun getDataBAse(context: Context):DailyDataBase {
             if (!::INSTANCE.isInitialized){
                 synchronized(DailyEntitie::class.java){
