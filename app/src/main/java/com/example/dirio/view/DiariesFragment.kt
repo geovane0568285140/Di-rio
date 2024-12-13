@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -38,7 +39,8 @@ class DiariesFragment : Fragment() {
         adpter.getListener(object : ListenerFragment {
 
             override fun editDaily(id: Int) {
-                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                val bundle = bundleOf("id" to id)
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
             }
 
             override fun deleteDaiyl(id: Int) {

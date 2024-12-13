@@ -8,14 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.example.dirio.R
 import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.databinding.FragmentEditDailyBinding
 import com.example.dirio.view.viewModel.FragmentsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -25,6 +22,7 @@ class EditDailyFragment : Fragment() {
     private var _binding: FragmentEditDailyBinding? = null
     private val binding get() = _binding!!
     private val viewMoodel by viewModels<FragmentsViewModel>()
+    private var bundle: Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,42 +32,66 @@ class EditDailyFragment : Fragment() {
 
         _binding = FragmentEditDailyBinding.inflate(inflater, container, false)
 
+        bundle = arguments?.getInt("id")
+        if (bundle != null)
+            getDaily(bundle!!)
+
         return binding.root
     }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//
-//        }
-//    }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         val title = binding.editTitle.text.toString()
         val textDaily = binding.editTextDaily.text.toString()
-        if (title != "" && textDaily != ""){
-            val currentDate = LocalDate.now()
-            val dateTime = LocalDateTime.of(
-                currentDate.year,
-                currentDate.month,
-                currentDate.dayOfMonth,
-                binding.timeDate.hour,
-                binding.timeDate.minute
-            )
-            viewMoodel.insertDaily(
-                DailyEntitie(
-                    0,
-                    title,
-                    textDaily,
-                    dateTime
-                )
-            )
+        if (title != "" && textDaily != "") {
+            if (bundle != null)
+                update(bundle!!)
+            else
+                insertDaily(title, textDaily)
         }
         Log.i(TAG, "onDestroyView: true")
         _binding = null
+    }
+
+    private fun getDateTimeUi(): LocalDateTime {
+        val currentDate = LocalDate.now()
+        return LocalDateTime.of(
+            currentDate.year,
+            currentDate.month,
+            currentDate.dayOfMonth,
+            binding.timeDate.hour,
+            binding.timeDate.minute
+        )
+    }
+
+    private fun insertDaily(titleDaily: String, text: String) {
+        viewMoodel.insertDaily(
+            DailyEntitie(
+                0,
+                titleDaily,
+                text,
+                getDateTimeUi()
+            )
+        )
+    }
+
+    private fun update(id: Int) {
+        viewMoodel.updateDaily(
+            DailyEntitie(
+                id,
+                binding.editTitle.text.toString(),
+                binding.editTextDaily.text.toString(),
+                getDateTimeUi()
+            )
+        )
+    }
+
+
+    private fun getDaily(id: Int) {
+        val daily = viewMoodel.getDaily(id)
+        binding.editTitle.setText(daily.text)
+        binding.timeDate.hour = daily.dateTime.hour
+        binding.timeDate.minute = daily.dateTime.minute
+        binding.editTextDaily.setText(daily.text)
     }
 }

@@ -18,4 +18,8 @@ class DiariesRepostiry(context: android.content.Context){
     fun insert(daily: DailyEntitie): Boolean {
         return repository.insert(daily) > 0
     }
+
+    fun update(daily: DailyEntitie): Int {
+        return repository.update(daily)
+    }
 }
