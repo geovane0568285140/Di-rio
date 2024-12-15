@@ -1,5 +1,6 @@
 package com.example.dirio.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +10,7 @@ import com.example.dirio.listener.ListenerFragment
 import com.example.dirio.view.viewHolder.DiariesViewHolder
 import com.google.android.material.animation.AnimatableView.Listener
 
-class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
+class DiariesAdapter : RecyclerView.Adapter<DiariesViewHolder>() {
 
     private var listDiaries: List<DailyEntitie> = listOf()
     private lateinit var listenerFragment: ListenerFragment
@@ -27,11 +28,14 @@ class DiariesAdapter: RecyclerView.Adapter<DiariesViewHolder>() {
         return listDiaries.count()
     }
 
-    fun update(list: List<DailyEntitie>){
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun update(list: List<DailyEntitie>) {
         listDiaries = list
+        notifyDataSetChanged()
     }
 
-    fun getListener(listener: ListenerFragment){
+    fun getListener(listener: ListenerFragment) {
         listenerFragment = listener
     }
 

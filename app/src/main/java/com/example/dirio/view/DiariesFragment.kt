@@ -1,5 +1,6 @@
 package com.example.dirio.view
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dirio.R
+import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.adapter.DiariesAdapter
 import com.example.dirio.databinding.FragmentDiariesBinding
 import com.example.dirio.listener.ListenerFragment
@@ -43,8 +46,16 @@ class DiariesFragment : Fragment() {
                 findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
             }
 
-            override fun deleteDaiyl(id: Int) {
-
+            override fun deleteDaiyl(daily: DailyEntitie) {
+                Toast.makeText(context, "Pagina Deletada", Toast.LENGTH_SHORT).show()
+                val builder = AlertDialog.Builder(context)
+                builder.setMessage("Tem certeza que deseja deleter esta anotação?")
+                    .setPositiveButton("Sim") { _, _ ->
+                        viewModel.delete(daily)
+                        viewModel.getALL()
+                    }
+                builder.setNegativeButton("Não") { _, _ -> }
+                builder.create().show()
             }
 
         })
@@ -73,9 +84,7 @@ class DiariesFragment : Fragment() {
     }
 
     private fun observe() {
-        viewModel.observeListaDaily.observe(
-            viewLifecycleOwner
-        ) {
+        viewModel.observeListaDaily.observe(viewLifecycleOwner) {
             adpter.update(it)
         }
     }

@@ -22,4 +22,9 @@ class DiariesRepostiry(context: android.content.Context){
     fun update(daily: DailyEntitie): Int {
         return repository.update(daily)
     }
+
+    fun delete(daily: DailyEntitie){
+        return repository.delete(daily)
+    }
+
 }

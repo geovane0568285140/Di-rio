@@ -16,7 +16,7 @@ interface DailyDAO {
     fun update(dailyEntitie: DailyEntitie): Int
 
     @Delete
-    fun delete(dailyEntitie: DailyEntitie)
+    fun delete(daily: DailyEntitie)
 
     @Query("SELECT * FROM Daily")
     fun getALL(): List<DailyEntitie>
