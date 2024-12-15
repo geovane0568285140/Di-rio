@@ -53,24 +53,13 @@ class EditDailyFragment : Fragment() {
         _binding = null
     }
 
-    private fun getDateTimeUi(): LocalDateTime {
-        val currentDate = LocalDate.now()
-        return LocalDateTime.of(
-            currentDate.year,
-            currentDate.month,
-            currentDate.dayOfMonth,
-            binding.timeDate.hour,
-            binding.timeDate.minute
-        )
-    }
-
     private fun insertDaily(titleDaily: String, text: String) {
         viewMoodel.insertDaily(
             DailyEntitie(
                 0,
                 titleDaily,
                 text,
-                getDateTimeUi()
+                viewMoodel.getDateTimeUi(binding.timeDate.hour, binding.timeDate.minute)
             )
         )
     }
@@ -81,10 +70,10 @@ class EditDailyFragment : Fragment() {
                 id,
                 binding.editTitle.text.toString(),
                 binding.editTextDaily.text.toString(),
-                getDateTimeUi()
+                viewMoodel.getDateTimeUi(binding.timeDate.hour, binding.timeDate.minute)
             )
         )
-    }
+}
 
 
     private fun getDaily(id: Int) {

@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.Repository.DiariesRepostiry
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 
 class FragmentsViewModel(application: Application) : AndroidViewModel(application) {
@@ -45,5 +47,15 @@ class FragmentsViewModel(application: Application) : AndroidViewModel(applicatio
         repostiry.delete(dailyEntitie)
     }
 
+    fun getDateTimeUi(hour: Int, minute: Int): LocalDateTime {
+        val currentDate = LocalDate.now()
+        return LocalDateTime.of(
+            currentDate.year,
+            currentDate.month,
+            currentDate.dayOfMonth,
+            hour,
+            minute
+        )
+    }
 
 }
