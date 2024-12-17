@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/liner_rowDaily"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingHorizontal="14dp"
+    android:orientation="vertical"
     android:paddingVertical="6dp"
-    android:id="@+id/liner_rowDaily"
-    >
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/text_titulo"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_weight="1"
-        android:text="teste"
-        android:textAllCaps="true"
-        android:gravity="center_vertical"
+    <ImageView
+        android:id="@+id/icon_daily"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@mipmap/agenda_icon_foreground"
+        app:tint="@color/purple"
         />
 
+
     <TextView
-        android:id="@+id/text_date"
-        android:layout_width="90dp"
-        android:layout_height="30dp"
-        android:text="21/01/2004"
-        android:gravity="center"
+        android:id="@+id/tyext_Titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
         />
 
 </LinearLayout>

@@ -5,4 +5,5 @@
     <color name="gray_text">#7C7B7B</color>
     <color name="gray_appBar">#D02F2F2F</color>
     <color name="gray_fragment">#D91F1F1F</color>
+    <color name="purple">#9C27B0</color>
 </resources>

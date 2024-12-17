@@ -13,11 +13,7 @@ class DiariesViewHolder(private val bind: RowDailyBinding, val listener: Listene
 
     fun bind(daily: DailyEntitie) {
 
-        bind.textTitulo.text = daily.title
-
-        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-
-        bind.textDate.text = daily.dateTime.format(formatter)
+        bind.tyextTitulo.text = daily.title
 
         bind.linerRowDaily.setOnClickListener {
             listener.editDaily(daily.id)

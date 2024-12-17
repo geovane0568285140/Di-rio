@@ -13,6 +13,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dirio.R
 import com.example.dirio.Repository.DailyEntitie
@@ -37,7 +38,7 @@ class DiariesFragment : Fragment() {
 
         _binding = FragmentDiariesBinding.inflate(inflater, container, false)
 
-        binding.recyclerviewDiaries.layoutManager = LinearLayoutManager(context)
+        binding.recyclerviewDiaries.layoutManager = GridLayoutManager(context, 3)
         binding.recyclerviewDiaries.adapter = adpter
         adpter.getListener(object : ListenerFragment {
 
