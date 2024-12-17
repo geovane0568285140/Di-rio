@@ -11,21 +11,19 @@ import com.example.dirio.R
 import com.example.dirio.Repository.DiariesRepostiry
 
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel() : ViewModel() {
 
     private val _drawable = MutableLiveData<Int>()
     val drawable: LiveData<Int> = _drawable
 
-    private val db = DiariesRepostiry(application)
-
     fun startFragment(nav: NavController){
             when(nav.currentDestination?.id){
                 R.id.DiariesFragment -> {
-                    _drawable.value = R.drawable.baseline_add_24
+                    _drawable.value = R.drawable.baseline_add_task_24
                     nav.navigate(R.id.EditFragment)
                 }
                 R.id.EditFragment -> {
-                    _drawable.value = R.drawable.baseline_add_task_24
+                    _drawable.value = R.drawable.baseline_add_24
                     nav.navigate(R.id.DiariesFragment)
                 }
             }
