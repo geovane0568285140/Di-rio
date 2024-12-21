@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.dirio.Repository.DailyEntitie
+import com.example.dirio.constants.Constants
 import com.example.dirio.databinding.FragmentEditDailyBinding
 import com.example.dirio.view.viewModel.FragmentsViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -33,8 +35,8 @@ class EditDailyFragment : Fragment() {
         _binding = FragmentEditDailyBinding.inflate(inflater, container, false)
 
         bundle = arguments?.getInt("id")
-        if (bundle != null)
-            getDaily(bundle!!)
+        bundleId_Fragment()
+
 
         return binding.root
     }
@@ -75,12 +77,20 @@ class EditDailyFragment : Fragment() {
         )
 }
 
-
     private fun getDaily(id: Int) {
         val daily = viewMoodel.getDaily(id)
         binding.editTitle.setText(daily.text)
         binding.timeDate.hour = daily.dateTime.hour
         binding.timeDate.minute = daily.dateTime.minute
         binding.editTextDaily.setText(daily.text)
+        binding.textDate.text = daily.dateTime.format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
+    }
+
+    //tamo codando tamo codando?
+    fun bundleId_Fragment(){
+        if (bundle != null)
+            getDaily(bundle!!)
+        else
+            binding.textDate.text = LocalDate.now().format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
     }
 }

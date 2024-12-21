@@ -1,16 +1,17 @@
 package com.example.dirio.Repository
 
 
-import androidx.room.ProvidedTypeConverter
+
 import androidx.room.TypeConverter
+import com.example.dirio.constants.Constants
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.Date
+
 
 
 class Converters {
 
-    private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+    private val formatter = DateTimeFormatter.ofPattern(Constants.DateOrDateTime.dateTime)
 
 
     @TypeConverter

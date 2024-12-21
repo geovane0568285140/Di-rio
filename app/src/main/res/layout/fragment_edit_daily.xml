@@ -9,9 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:padding="18dp"
         app:layout_constraintBottom_toBottomOf="@+id/edit_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/edit_titulo">
+        app:layout_constraintTop_toBottomOf="@+id/edit_titulo">]
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/edit_title"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
 
         <EditText
             android:id="@+id/edit_title"
