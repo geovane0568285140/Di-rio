@@ -1,7 +1,9 @@
 package com.example.dirio.view
 
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -16,6 +18,7 @@ import androidx.lifecycle.Observer
 import com.example.dirio.R
 import com.example.dirio.databinding.ActivityMainBinding
 import com.example.dirio.view.viewModel.MainViewModel
+import java.util.Objects
 
 class MainActivity : AppCompatActivity() {
 
@@ -67,6 +70,10 @@ class MainActivity : AppCompatActivity() {
     private fun observe(){
         viewModel.drawable.observe(this) {
             binding.fab.setImageResource(it)
+        }
+        viewModel.fragmentId.observe(this
+        ) {
+            Log.i(TAG, "observe: startFragment")
         }
     }
 }

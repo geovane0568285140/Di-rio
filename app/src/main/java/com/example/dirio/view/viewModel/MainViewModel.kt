@@ -1,6 +1,7 @@
 package com.example.dirio.view.viewModel
 
 
+import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -19,7 +20,7 @@ class MainViewModel() : ViewModel() {
     val fragmentId: LiveData<Int> = _fragmentId
 
     fun startFragment(nav: NavController){
-        _fragmentId.value = nav.currentDestination?.id ?: 0
+//        _fragmentId.value = nav.currentDestination?.id ?: 0
             when(nav.currentDestination?.id){
                 R.id.DiariesFragment -> {
                     _drawable.value = R.drawable.baseline_add_task_24
