@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.example.dirio.Repository.Converters
 import com.example.dirio.Repository.DailyEntitie
 import com.example.dirio.constants.Constants
 import com.example.dirio.databinding.FragmentEditDailyBinding
@@ -91,7 +92,7 @@ class EditDailyFragment : Fragment() {
 
     private fun bundleId_Fragment(){
         if (bundle != 0)
-            getDaily(bundle!!)
+            getDaily(bundle)
         else
             binding.textDate.text = LocalDate.now().format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
     }

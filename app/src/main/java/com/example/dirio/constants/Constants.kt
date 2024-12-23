@@ -1,10 +1,10 @@
 package com.example.dirio.constants
 
-class Constants {
+class Constants private constructor() {
 
      object DateOrDateTime{
-        const val date = "dd/MM/yyyy"
-        const val dateTime = "dd/MM/yyyy HH:mm"
+        const val date: String = "dd/MM/yyyy"
+        const val dateTime: String = "dd/MM/yyyy HH:mm"
     }
 
 }
