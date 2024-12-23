@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.dirio.constants.Constants
 
 
 @Database(entities = [DailyEntitie::class], version = 1)
@@ -19,7 +20,7 @@ abstract class DailyDataBase: RoomDatabase() {
         fun getDataBAse(context: Context):DailyDataBase {
             if (!::INSTANCE.isInitialized){
                 synchronized(DailyEntitie::class.java){
-                 INSTANCE = Room.databaseBuilder(context, DailyDataBase::class.java, "dailydb")
+                 INSTANCE = Room.databaseBuilder(context, DailyDataBase::class.java, Constants.DataBase.namedb_daily)
                      .allowMainThreadQueries()
                      .build()
                 }
