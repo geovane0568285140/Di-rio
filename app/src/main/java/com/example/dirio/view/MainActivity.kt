@@ -39,12 +39,9 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
-
         binding.fab.setOnClickListener {
             viewModel.startFragment(navController)
         }
-
 
         observe()
     }
@@ -61,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
+                viewModel.alertDialog(this)!!.show()
                 true
             }
             else -> super.onOptionsItemSelected(item)

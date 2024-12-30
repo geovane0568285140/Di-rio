@@ -1,6 +1,8 @@
 package com.example.dirio.view
 
 import android.app.AlertDialog
+
+import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -48,15 +50,8 @@ class DiariesFragment : Fragment() {
             }
 
             override fun deleteDaiyl(daily: DailyEntitie) {
-                Toast.makeText(context, "Pagina Deletada", Toast.LENGTH_SHORT).show()
-                val builder = AlertDialog.Builder(context)
-                builder.setMessage("Tem certeza que deseja deleter esta anotação?")
-                    .setPositiveButton("Sim") { _, _ ->
                         viewModel.delete(daily)
                         viewModel.getALL()
-                    }
-                builder.setNegativeButton("Não") { _, _ -> }
-                builder.create().show()
             }
 
         })

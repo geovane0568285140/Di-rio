@@ -25,7 +25,7 @@ class EditDailyFragment : Fragment() {
     private var _binding: FragmentEditDailyBinding? = null
     private val binding get() = _binding!!
     private val viewMoodel by viewModels<FragmentsViewModel>()
-    private var bundle: Int = 0
+    private var bundle: Int? = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,11 +35,8 @@ class EditDailyFragment : Fragment() {
 
         _binding = FragmentEditDailyBinding.inflate(inflater, container, false)
 
-        bundle = requireArguments().getInt("id")
-
-
+        bundle = arguments?.getInt("id")
         bundleId_Fragment()
-
 
         return binding.root
     }
@@ -49,7 +46,7 @@ class EditDailyFragment : Fragment() {
         val title = binding.editTitle.text.toString()
         val textDaily = binding.editTextDaily.text.toString()
         if (title != "" && textDaily != "") {
-            if (bundle != 0)
+            if (bundle != null)
                 update(bundle!!)
             else
                 insertDaily(title, textDaily)
@@ -78,7 +75,7 @@ class EditDailyFragment : Fragment() {
                 viewMoodel.getDateTimeUi(binding.timeDate.hour, binding.timeDate.minute)
             )
         )
-}
+    }
 
     private fun getDaily(id: Int) {
         val daily = viewMoodel.getDaily(id)
@@ -86,14 +83,16 @@ class EditDailyFragment : Fragment() {
         binding.timeDate.hour = daily.dateTime.hour
         binding.timeDate.minute = daily.dateTime.minute
         binding.editTextDaily.setText(daily.text)
-        binding.textDate.text = daily.dateTime.format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
+        binding.textDate.text =
+            daily.dateTime.format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
     }
 
 
-    private fun bundleId_Fragment(){
-        if (bundle != 0)
-            getDaily(bundle)
+    private fun bundleId_Fragment() {
+        if (bundle != null)
+            getDaily(bundle!!)
         else
-            binding.textDate.text = LocalDate.now().format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
+            binding.textDate.text =
+                LocalDate.now().format(DateTimeFormatter.ofPattern(Constants.DateOrDateTime.date))
     }
 }

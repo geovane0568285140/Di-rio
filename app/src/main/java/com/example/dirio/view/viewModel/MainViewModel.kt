@@ -29,7 +29,6 @@ class MainViewModel() : ViewModel() {
                 _drawable.value = R.drawable.baseline_add_task_24
                 nav.navigate(R.id.EditFragment)
             }
-
             R.id.EditFragment -> {
                 _drawable.value = R.drawable.baseline_add_24
                 nav.navigate(R.id.DiariesFragment)
@@ -43,8 +42,7 @@ class MainViewModel() : ViewModel() {
             .setNegativeButton("Fechar") {dialog, id ->
                 dialog.cancel()
             }
-        return builder.create()
-    }
+        return builder.create()    }
 
 
 }

@@ -1,7 +1,7 @@
 package com.example.dirio.view.viewModel
 
-import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.dirio.Repository.DailyEntitie
