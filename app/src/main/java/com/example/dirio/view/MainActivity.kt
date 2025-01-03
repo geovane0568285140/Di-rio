@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer
 import com.example.dirio.R
 import com.example.dirio.databinding.ActivityMainBinding
 import com.example.dirio.view.viewModel.MainViewModel
+import com.example.dirio.view.viewModel.SharedViewModel
 import java.util.Objects
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
+    private val sharedViewModel: SharedViewModel by viewModels<SharedViewModel>()
 
     //tamo codando tama codando?
 
@@ -40,11 +42,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener {
-            viewModel.startFragment(navController)
+            sharedViewModel.startFragment(navController)
         }
 
         observe()
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -72,12 +76,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observe(){
-        viewModel.drawable.observe(this) {
+        sharedViewModel.drawable.observe(this) {
             binding.fab.setImageResource(it)
-        }
-        viewModel.fragmentId.observe(this
-        ) {
-            Log.i(TAG, "observe: startFragment")
         }
     }
 }

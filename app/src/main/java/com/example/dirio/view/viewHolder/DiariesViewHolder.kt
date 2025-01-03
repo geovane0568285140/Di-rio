@@ -21,7 +21,6 @@ class DiariesViewHolder(private val bind: RowDailyBinding, val listener: Listene
         }
 
         bind.linerRowDaily.setOnLongClickListener {
-
             val builder = AlertDialog.Builder(itemView.context)
             builder.setMessage("Tem certeza que deseja deleter esta anotação?")
                 .setPositiveButton("Sim") { dialog, which ->
